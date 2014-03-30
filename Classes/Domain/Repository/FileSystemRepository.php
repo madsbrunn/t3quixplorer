@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\Controller;
+namespace MadsBrunn\T3quixplorer\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice
@@ -26,47 +26,49 @@ namespace MadsBrunn\T3quixplorer\Controller;
  ***************************************************************/
 
 /**
+ * @package t3quixplorer
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class QuixplorerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class FileSystemRepository  {
 
 	/**
-	 * @var \MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
 	 */
-	protected $fileSystemRepository;
+	protected $objectManager;
 
 	/**
-	 * inject FileSystemRepository
+	 * Injects the object manager
 	 *
-	 * @param \MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository
+	 * @param \TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager
+	 * @return void
 	 */
-	public function injectFileSystemRepository(\MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository) {
-		$this->fileSystemRepository = $fileSystemRepository;
+	public function injectObjectManager(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager) {
+		$this->objectManager = $objectManager;
 	}
 
 	/**
-	 * list action
+	 * find all directories and files of given directory
 	 *
 	 * @param string $directory
-	 * @return void
+	 * @return array
 	 */
-	public function listAction($directory = '') {
-
-		// get current directory
-		if (empty($directory)) {
-			$currentDirectory = PATH_site;
-		} else {
-			$currentDirectory = PATH_site . $directory;
-
-			// check if directory exists
-			if (!is_dir($currentDirectory)) {
-				$currentDirectory = PATH_site;
+	public function findAllByDirectory($directory) {
+		$directory = new \DirectoryIterator($directory);
+		$entries = array();
+		/** @var \DirectoryIterator $entry */
+		foreach ($directory as $entry) {
+			if ($entry->isDot()) {
+				continue;
+			} elseif ($entry->isDir() || $entry->isFile()) {
+				/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
+				$entry = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Entry', $entry);
+				$entries[$entry->name] = $entry;
+			} else {
+				// is link or what ever
+				continue;
 			}
 		}
-
-		// get files and folders of current directory
-		$entries = $this->fileSystemRepository->findAllByDirectory($currentDirectory);
-		$this->view->assign('entries', $entries);
+		return $entries;
 	}
 
 }

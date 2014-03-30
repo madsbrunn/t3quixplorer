@@ -1,0 +1,14 @@
+<table>
+	<form action="index.php?action=mkitem&order=name&srt=yes" method="POST">
+		<tr>
+			<td>
+				<select name="mktype">
+					<option value="file"><f:translate key="file" /></option>
+					<option value="dir"><f:translate key="folder" /></option>
+				</select>
+				<input name="mkname" type="text" size="15">
+				<input type="submit" value="{f:translate(key: 'create')}">
+			</td>
+		</tr>
+	</form>
+</table>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-03-29T15:51:23Z" product-name="t3quixplorer">
+		<header/>
+		<body>
+
+			<trans-unit id="title">
+				<source>Quixplorer</source>
+			</trans-unit>
+
+			<trans-unit id="up">
+				<source>Up</source>
+			</trans-unit>
+			<trans-unit id="home">
+				<source>Home</source>
+			</trans-unit>
+			<trans-unit id="refresh">
+				<source>Refresh</source>
+			</trans-unit>
+			<trans-unit id="search">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="copy">
+				<source>Copy</source>
+			</trans-unit>
+			<trans-unit id="cut">
+				<source>Cut</source>
+			</trans-unit>
+			<trans-unit id="delete">
+				<source>Delete</source>
+			</trans-unit>
+			<trans-unit id="upload">
+				<source>Upload</source>
+			</trans-unit>
+			<trans-unit id="archive">
+				<source>Archive</source>
+			</trans-unit>
+			<trans-unit id="edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="extract">
+				<source>Extract files</source>
+			</trans-unit>
+			<trans-unit id="rename">
+				<source>Rename</source>
+			</trans-unit>
+			<trans-unit id="download">
+				<source>Download</source>
+			</trans-unit>
+
+			<trans-unit id="file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="folder">
+				<source>Folder</source>
+			</trans-unit>
+			<trans-unit id="create">
+				<source>Create</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>
