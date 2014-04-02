@@ -101,4 +101,18 @@ class Entry {
 		return implode('', $perms);
 	}
 
+	/**
+	 * getter for relative path
+	 *
+	 * @return string
+	 */
+	public function getRelativePath() {
+		if (!GeneralUtility::isFirstPartOfStr($this->fullPath, PATH_site)) {
+			$relativePath = '';
+		} else {
+			$relativePath = str_replace(PATH_site, '', $this->fullPath);
+		}
+		return $relativePath;
+	}
+
 }

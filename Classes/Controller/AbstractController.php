@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\Domain\Repository;
+namespace MadsBrunn\T3quixplorer\Controller;
 
 /***************************************************************
  *  Copyright notice
@@ -26,56 +26,38 @@ namespace MadsBrunn\T3quixplorer\Domain\Repository;
  ***************************************************************/
 
 /**
- * @package t3quixplorer
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class FileSystemRepository  {
+class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
+	 * @var \MadsBrunn\T3quixplorer\Domain\Model\Directory
 	 */
-	protected $objectManager;
-
-
-
-
+	protected $directory;
 
 	/**
-	 * Injects the object manager
+	 * add some variables for all actions
 	 *
-	 * @param \TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager
 	 * @return void
 	 */
-	public function injectObjectManager(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager) {
-		$this->objectManager = $objectManager;
+	public function initializeAction() {
+		// set directory
+		if ($this->request->hasArgument('directory')) {
+			$directory = $this->request->getArgument('directory');
+		} else {
+			$directory = '';
+		}
+		$this->directory = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Directory', $directory);
 	}
 
-
-
-
-
 	/**
-	 * find all directories and files of given directory
+	 * add directory model to view
 	 *
-	 * @param \DirectoryIterator $directory
-	 * @return array
+	 * @return void
 	 */
-	public function getEntriesOfDirectory(\DirectoryIterator $directory) {
-		$entries = array();
-		/** @var \DirectoryIterator $entry */
-		foreach ($directory as $entry) {
-			if ($entry->isDot()) {
-				continue;
-			} elseif ($entry->isDir() || $entry->isFile()) {
-				/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
-				$entry = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Entry', $entry);
-				$entries[$entry->name] = $entry;
-			} else {
-				// is link or what ever
-				continue;
-			}
-		}
-		return $entries;
+	public function initializeView() {
+		// add directory model to view
+		$this->view->assign('directory', $this->directory);
 	}
 
 }

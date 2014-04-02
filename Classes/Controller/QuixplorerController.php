@@ -24,49 +24,38 @@ namespace MadsBrunn\T3quixplorer\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class QuixplorerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-
-	/**
-	 * @var \MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository
-	 */
-	protected $fileSystemRepository;
-
-	/**
-	 * inject FileSystemRepository
-	 *
-	 * @param \MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository
-	 */
-	public function injectFileSystemRepository(\MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository) {
-		$this->fileSystemRepository = $fileSystemRepository;
-	}
+class QuixplorerController extends \MadsBrunn\T3quixplorer\Controller\AbstractController {
 
 	/**
 	 * list action
 	 *
-	 * @param string $directory
 	 * @return void
 	 */
-	public function listAction($directory = '') {
+	public function listAction() {
+	}
 
-		// get current directory
-		if (empty($directory)) {
-			$currentDirectory = PATH_site;
-		} else {
-			$currentDirectory = PATH_site . $directory;
-
-			// check if directory exists
-			if (!is_dir($currentDirectory)) {
-				$currentDirectory = PATH_site;
-			}
+	/**
+	 * createEntry action
+	 *
+	 * @param string $type The type of the entry. Either file or directory
+	 * @param string $name The name of the file or directory
+	 * @return void
+	 */
+	public function createEntryAction($type, $name) {
+		$path = $this->directory->getDirectory()->getPath();
+		if ($type === 'file') {
+			touch($path . '/' . $name);
 		}
-
-		// get files and folders of current directory
-		$entries = $this->fileSystemRepository->findAllByDirectory($currentDirectory);
-		$this->view->assign('entries', $entries);
+		if ($type === 'directory') {
+			mkdir($path . '/' . $name);
+		}
+		GeneralUtility::fixPermissions($path . '/' . $name);
+		$this->redirect('list', 'Quixplorer', NULL, array('directory' => $this->directory->getRelativePath()));
 	}
 
 }

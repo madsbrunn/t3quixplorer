@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-03-29T15:51:23Z" product-name="t3quixplorer">
+	<file source-language="de" datatype="plaintext" original="messages" date="2014-03-29T15:51:23Z" product-name="t3quixplorer">
 		<header/>
 		<body>
 
@@ -10,55 +10,76 @@
 
 			<trans-unit id="up">
 				<source>Up</source>
+				<target>Höher</target>
 			</trans-unit>
 			<trans-unit id="home">
 				<source>Home</source>
+				<target>Start</target>
 			</trans-unit>
 			<trans-unit id="refresh">
 				<source>Refresh</source>
+				<target>Aktualisieren</target>
 			</trans-unit>
 			<trans-unit id="search">
 				<source>Search</source>
+				<target>SuchenHöher</target>
 			</trans-unit>
 			<trans-unit id="copy">
 				<source>Copy</source>
+				<target>Kopieren</target>
 			</trans-unit>
 			<trans-unit id="cut">
 				<source>Cut</source>
+				<target>Ausschneiden</target>
 			</trans-unit>
 			<trans-unit id="delete">
 				<source>Delete</source>
+				<target>Löschen</target>
 			</trans-unit>
 			<trans-unit id="upload">
 				<source>Upload</source>
+				<target>Hochladen</target>
 			</trans-unit>
 			<trans-unit id="archive">
 				<source>Archive</source>
+				<target>Archivieren</target>
 			</trans-unit>
 			<trans-unit id="edit">
 				<source>Edit</source>
+				<target>Bearbeiten</target>
 			</trans-unit>
 			<trans-unit id="extract">
 				<source>Extract files</source>
+				<target>Dateien entpacken</target>
 			</trans-unit>
 			<trans-unit id="rename">
 				<source>Rename</source>
+				<target>Umbenennen</target>
 			</trans-unit>
 			<trans-unit id="download">
 				<source>Download</source>
+				<target>Herunterladen</target>
 			</trans-unit>
 
 			<trans-unit id="file">
 				<source>File</source>
+				<target>Datei</target>
 			</trans-unit>
 			<trans-unit id="folder">
 				<source>Folder</source>
+				<target>Ordner</target>
+			</trans-unit>
+			<trans-unit id="directory">
+				<source>Directory</source>
+				<target>Verzeichnis</target>
 			</trans-unit>
 			<trans-unit id="create">
 				<source>Create</source>
+				<target>Erstellen</target>
 			</trans-unit>
 			<trans-unit id="changeDirectory">
 				<source>Go to directory</source>
+				<target>Gehe zu Verzeichnis</target>
 			</trans-unit>
 
 		</body>

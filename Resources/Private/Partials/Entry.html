@@ -4,9 +4,14 @@
 	<td><input type="checkbox" name="selitems[]" value="{entry.name}" onclick="javascript:Toggle(this);"></td>
 	<td>
 		<t3q:spriteIcon file="{f:if(condition: entry.isDir, then: 'folder', else: entry.name)}" />
-		<a href="index.php?action=list&dir={entry.name}&order=name&srt=yes" target="">
-			&nbsp;{entry.name}
-		</a>
+		<f:if condition="{entry.isDir}">
+			<f:then>
+				<f:link.action action="list" arguments="{directory: entry.relativePath}">
+					&nbsp;{entry.name}
+				</f:link.action>
+			</f:then>
+			<f:else>&nbsp;{entry.name}</f:else>
+		</f:if>
 	</td>
 
 	<td>{entry.size}</td>

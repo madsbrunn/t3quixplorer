@@ -8,23 +8,24 @@
 		<!-- General Actions and Upload form -->
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
 			<tr>
-				<td><f:render partial="GeneralActionItems" /></td>
+				<td><f:render partial="GeneralActionItems" arguments="{directory: directory}" /></td>
 				<td><f:render partial="Forms/CreateFileOrFolder" /></td>
 			</tr>
 		</table>
 		<!-- General Actions and Upload form -->
 
-
+		<!-- change directory form -->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><f:render partial="Forms/ChangeDirectory" arguments="{directory: directory}" /></td>
+			</tr>
+		</table>
+		<!-- change directory form -->
 
 		<form name="selform" method="POST" action="index.php?action=post&order=name&srt=yes">
 			<input type="hidden" name="do_action">
 			<input type="hidden" name="first" value="y">
 			<table>
-				<!-- Change directory -->
-				<tr>
-					<td colspan="7"><br />Verzeichnis: /<input type="text" size="50" name="jumpdir" value="">&nbsp;<input type="submit" value="Gehe zu Verzeichnis" name="jumptodir"><br /><br /></td>
-				</tr>
-				<!-- Change directory -->
 
 				<!-- Header fields of table -->
 				<tr>
@@ -55,7 +56,7 @@
 				<!-- Spacer -->
 
 				<!-- list the entries of directory -->
-				<f:for each="{entries}" as="entry">
+				<f:for each="{directory.entries}" as="entry">
 					<f:render partial="Entry" arguments="{entry: entry}" />
 				</f:for>
 				<!-- list the entries of directory -->
@@ -85,16 +86,5 @@
 				<!-- Spacer -->
 			</table>
 		</form>
-
-		<!-- Spacer element -->
-		<div style="padding-top: 20px;"></div>
-
-
-		<!-- Section content -->
-		<a href="#" onclick="top.ShortcutManager.createShortcut(String.fromCharCode(69,105,110,32,76,101,115,101,122,101,105,99,104,101,110,32,102,252,114,32,100,105,101,115,101,32,83,101,105,116,101,32,101,114,122,101,117,103,101,110), '../../../../typo3/', 'tools_txt3quixplorerM1', '%2Ftypo3conf%2Fext%2Ft3quixplorer%2Fmod1%2Findex.php%3F%26id%3D%26dir%3D%26item%3D%26action%3D%26SET%5Bfunction%5D%3D');return false;" title="Ein Lesezeichen für diese Seite erzeugen"><span class="t3-icon t3-icon-actions t3-icon-actions-system t3-icon-system-shortcut-new">&nbsp;</span></a>
-
-		<!-- Spacer element -->
-		<div style="padding-top: 10px;"></div>
-
 	</div>
 </f:section>

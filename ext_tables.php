@@ -10,7 +10,7 @@ if (TYPO3_MODE === 'BE') {
 		't3quixplorer',	// Submodule key
 		'',						// Position
 		array(
-			'Quixplorer' => 'list',
+			'Quixplorer' => 'list, createEntry',
 		),
 		array(
 			'access' => 'user,group',

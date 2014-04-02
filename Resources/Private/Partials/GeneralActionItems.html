@@ -1,19 +1,19 @@
 <table>
 	<tr>
 		<td>
-			<a href="index.php?action=list&dir=&order=name&srt=yes">
+			<f:link.action action="list" arguments="{directory: directory.subDirectory}">
 				<f:render partial="Icon" arguments="{path: 'Icons/_up.gif', lang: 'up'}" />
-			</a>
+			</f:link.action>
 		</td>
 		<td>
-			<a href="index.php?action=list&dir=&order=name&srt=yes">
+			<f:link.action action="list" arguments="{directory: ''}">
 				<f:render partial="Icon" arguments="{path: 'Icons/_home.gif', lang: 'home'}" />
-			</a>
+			</f:link.action>
 		</td>
 		<td>
-			<a href="javascript:location.reload();">
+			<f:link.action action="list" arguments="{directory: directory.relativePath}">
 				<f:render partial="Icon" arguments="{path: 'Icons/_refresh.gif', lang: 'refresh'}" />
-			</a>
+			</f:link.action>
 		</td>
 		<td>
 			<a href="index.php?action=search&order=name&srt=yes">
