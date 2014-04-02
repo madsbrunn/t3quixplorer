@@ -2,48 +2,39 @@
 	<tr>
 		<td>
 			<f:link.action action="list" arguments="{directory: directory.subDirectory}">
-				<f:render partial="Icon" arguments="{path: 'Icons/_up.gif', lang: 'up'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_up.gif', lang: 'up'}" /></span>
 			</f:link.action>
-		</td>
-		<td>
+
 			<f:link.action action="list" arguments="{directory: ''}">
-				<f:render partial="Icon" arguments="{path: 'Icons/_home.gif', lang: 'home'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_home.gif', lang: 'home'}" /></span>
 			</f:link.action>
-		</td>
-		<td>
+
 			<f:link.action action="list" arguments="{directory: directory.relativePath}">
-				<f:render partial="Icon" arguments="{path: 'Icons/_refresh.gif', lang: 'refresh'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_refresh.gif', lang: 'refresh'}" /></span>
 			</f:link.action>
-		</td>
-		<td>
+
 			<a href="index.php?action=search&order=name&srt=yes">
-				<f:render partial="Icon" arguments="{path: 'Icons/_search.gif', lang: 'search'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_search.gif', lang: 'search'}" /></span>
 			</a>
-		</td>
-		<td>::</td>
-		<td>
+
 			<a href="javascript:Copy();">
-				<f:render partial="Icon" arguments="{path: 'Icons/__copy.gif', lang: 'copy'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/__copy.gif', lang: 'copy'}" /></span>
 			</a>
-		</td>
-		<td>
+
 			<a href="javascript:Move();">
-				<f:render partial="Icon" arguments="{path: 'Icons/__cut.gif', lang: 'cut'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/__cut.gif', lang: 'cut'}" /></span>
 			</a>
-		</td>
-		<td>
+
 			<a href="javascript:Delete();">
-				<f:render partial="Icon" arguments="{path: 'Icons/_delete.gif', lang: 'delete'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_delete.gif', lang: 'delete'}" /></span>
 			</a>
-		</td>
-		<td>
+
 			<a href="index.php?action=upload&order=name&srt=yes">
-				<f:render partial="Icon" arguments="{path: 'Icons/_upload.gif', lang: 'upload'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_upload.gif', lang: 'upload'}" /></span>
 			</a>
-		</td>
-		<td>
+
 			<a href="javascript:Archive();">
-				<f:render partial="Icon" arguments="{path: 'Icons/_archive.gif', lang: 'archive'}" />
+				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_archive.gif', lang: 'archive'}" /></span>
 			</a>
 		</td>
 	</tr>

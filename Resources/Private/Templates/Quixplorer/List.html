@@ -1,3 +1,5 @@
+{namespace t3q=MadsBrunn\T3quixplorer\ViewHelpers}
+
 <f:layout name="Default" />
 
 <f:section name="content">
@@ -6,7 +8,7 @@
 	<div>
 
 		<!-- General Actions and Upload form -->
-		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<table border="0">
 			<tr>
 				<td><f:render partial="GeneralActionItems" arguments="{directory: directory}" /></td>
 				<td><f:render partial="Forms/CreateFileOrFolder" /></td>
@@ -15,7 +17,7 @@
 		<!-- General Actions and Upload form -->
 
 		<!-- change directory form -->
-		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<table border="0">
 			<tr>
 				<td><f:render partial="Forms/ChangeDirectory" arguments="{directory: directory}" /></td>
 			</tr>
@@ -25,65 +27,46 @@
 		<form name="selform" method="POST" action="index.php?action=post&order=name&srt=yes">
 			<input type="hidden" name="do_action">
 			<input type="hidden" name="first" value="y">
-			<table>
+			<table class="t3-table">
 
 				<!-- Header fields of table -->
-				<tr>
-					<th width="2%" class="c-headLine" nowrap="nowrap">
-						<input type="checkbox" name="toggleAllC" onclick="javascript:ToggleAll(this);">
-					</th>
-					<th width="44%" class="c-headLine" nowrap="nowrap">
-						<a href="index.php?action=list&order=name&srt=no">Name&nbsp;<img align="absmiddle" border="0"  src="../../../../typo3/../typo3conf/ext/t3quixplorer/mod1/_img/_arrowup.gif" width="10" height="10" alt="^"></a>
-					</th>
-					<th width="10%" class="c-headLine" nowrap="nowrap">
-						<a href="index.php?action=list&order=size&srt=yes">Größe</a>
-					</th>
-					<th width="16%" class="c-headLine" nowrap="nowrap">
-						<a href="index.php?action=list&order=type&srt=yes">Typ</a>
-					</th>
-					<th width="14%" class="c-headLine" nowrap="nowrap">
-						<a href="index.php?action=list&order=mod&srt=yes">Geändert</a>
-					</th>
-					<th width="8%" class="c-headLine" nowrap="nowrap">Rechte</th>
-					<th width="6%" class="c-headLine" nowrap="nowrap">Aktionen</th>
-				</tr>
+				<thead>
+					<tr>
+						<th class="c-headLine"><input type="checkbox" class="toggleAll" name="toggleAll"></th>
+						<th class="c-headLine"><f:translate key="name" /></th>
+						<th class="c-headLine"><f:translate key="size" /></th>
+						<th class="c-headLine"><f:translate key="type" /></th>
+						<th class="c-headLine"><f:translate key="modified" /></th>
+						<th class="c-headLine"><f:translate key="permissions" /></th>
+						<th class="c-headLine"><f:translate key="actions" /></th>
+					</tr>
+				</thead>
 				<!-- Header fields of table -->
 
-				<!-- Spacer -->
-				<tr>
-					<td colspan="7">&nbsp;</td>
-				</tr>
-				<!-- Spacer -->
+				<tbody>
+					<!-- list the entries of directory -->
+					<f:for each="{directory.entries}" as="entry">
+						<f:render partial="Entry" arguments="{entry: entry}" />
+					</f:for>
+					<!-- list the entries of directory -->
+				</tbody>
 
-				<!-- list the entries of directory -->
-				<f:for each="{directory.entries}" as="entry">
-					<f:render partial="Entry" arguments="{entry: entry}" />
-				</f:for>
-				<!-- list the entries of directory -->
+				<tfoot>
+					<t3q:directoryInformation directory="{directory}">
+						<!-- Additional Folder informations -->
+						<tr>
+							<td class="c-headLine"></td>
+							<td class="c-headLine">{entries} {f:translate(key: 'entries')} ({f:translate(key: 'free')}: {freeDiskSpace})</td>
+							<td class="c-headLine">{size}</td>
+							<td class="c-headLine"> </td>
+							<td class="c-headLine"> </td>
+							<td class="c-headLine"> </td>
+							<td class="c-headLine"> </td>
+						</tr>
+						<!-- Additional Folder informations -->
+					</t3q:directoryInformation>
+				</tfoot>
 
-				<!-- Spacer -->
-				<tr>
-					<td colspan="7">&nbsp;</td>
-				</tr>
-				<!-- Spacer -->
-
-				<!-- Additional Folder informations -->
-				<tr>
-					<td class="c-headLine"></td>
-					<td class="c-headLine">17 Objekt(e) (Frei: 186.34 GB)</td>
-					<td class="c-headLine">48.04 KB</td>
-					<td class="c-headLine"> </td>
-					<td class="c-headLine"> </td>
-					<td class="c-headLine"> </td>
-					<td class="c-headLine"> </td>
-				</tr>
-				<!-- Additional Folder informations -->
-
-				<!-- Spacer -->
-				<tr>
-					<td colspan="7">&nbsp;</td>
-				</tr>
-				<!-- Spacer -->
 			</table>
 		</form>
 	</div>

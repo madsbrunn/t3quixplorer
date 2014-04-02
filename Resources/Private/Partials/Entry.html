@@ -1,7 +1,7 @@
 {namespace t3q=MadsBrunn\T3quixplorer\ViewHelpers}
 
 <tr>
-	<td><input type="checkbox" name="selitems[]" value="{entry.name}" onclick="javascript:Toggle(this);"></td>
+	<td><input type="checkbox" class="selectEntry" name="selitems[]" value="{entry.name}"></td>
 	<td>
 		<t3q:spriteIcon file="{f:if(condition: entry.isDir, then: 'folder', else: entry.name)}" />
 		<f:if condition="{entry.isDir}">
@@ -30,27 +30,11 @@
 	</td>
 
 	<td>
-		<table>
-			<tr>
-				<td>
-					<f:render partial="Icon" arguments="{path: 'Icons/_noedit2.gif', lang: 'edit'}" />
-				</td>
-
-				<td>
-					<f:render partial="Icon" arguments="{path: 'Icons/_noextract.gif', lang: 'extract'}" />
-				</td>
-
-				<td>
-					<a href="index.php?action=rename&item={entry.name}&order=name&srt=yes">
-						<f:render partial="Icon" arguments="{path: 'Icons/_rename.gif', lang: 'rename'}" />
-					</a>
-				</td>
-
-				<td>
-					<f:render partial="Icon" arguments="{path: 'Icons/_nodownload.gif', lang: 'download'}" />
-				</td>
-
-			</tr>
-		</table>
+		<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-open">&nbsp;</span>
+		<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_noextract.gif', lang: 'extract'}" /></span>
+		<a href="index.php?action=rename&item={entry.name}&order=name&srt=yes">
+			<span class="t3-icon t3-icon-actions t3-icon-actions-edit t3-icon-edit-rename">&nbsp;</span>
+		</a>
+		<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_nodownload.gif', lang: 'download'}" /></span>
 	</td>
 </tr>

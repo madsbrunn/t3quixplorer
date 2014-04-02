@@ -82,6 +82,39 @@
 				<target>Gehe zu Verzeichnis</target>
 			</trans-unit>
 
+			<trans-unit id="name">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="size">
+				<source>Size</source>
+				<target>Größe</target>
+			</trans-unit>
+			<trans-unit id="type">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="modified">
+				<source>Modified</source>
+				<target>Geändert</target>
+			</trans-unit>
+			<trans-unit id="permissions">
+				<source>Permissions</source>
+				<target>Rechte</target>
+			</trans-unit>
+			<trans-unit id="actions">
+				<source>Actions</source>
+				<target>Aktionen</target>
+			</trans-unit>
+			<trans-unit id="entries">
+				<source>Entries</source>
+				<target>Einträge</target>
+			</trans-unit>
+			<trans-unit id="free">
+				<source>Free</source>
+				<target>Frei</target>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

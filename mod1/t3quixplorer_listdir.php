@@ -342,7 +342,7 @@ class t3quixplorer_listdir{
 						if(e.checked) CheckAll();
 						else ClearAll();
 					}
-					
+
 					function CheckAll() {
 						var ml = document.selform;
 						var len = ml.elements.length;

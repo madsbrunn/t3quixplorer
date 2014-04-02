@@ -61,6 +61,31 @@
 				<source>Go to directory</source>
 			</trans-unit>
 
+			<trans-unit id="name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="size">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="modified">
+				<source>Modified</source>
+			</trans-unit>
+			<trans-unit id="permissions">
+				<source>Permissions</source>
+			</trans-unit>
+			<trans-unit id="actions">
+				<source>Actions</source>
+			</trans-unit>
+			<trans-unit id="entries">
+				<source>Entries</source>
+			</trans-unit>
+			<trans-unit id="free">
+				<source>Free</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
