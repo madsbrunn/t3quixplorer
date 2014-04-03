@@ -10,7 +10,7 @@ if (TYPO3_MODE === 'BE') {
 		't3quixplorer',	// Submodule key
 		'',						// Position
 		array(
-			'Quixplorer' => 'list, createEntry',
+			'Quixplorer' => 'list, createEntry, showRenameForm, rename, showEditForm',
 		),
 		array(
 			'access' => 'user,group',
@@ -20,6 +20,24 @@ if (TYPO3_MODE === 'BE') {
 	);
 }
 
-/*if (TYPO3_MODE=='BE')	{
-	t3lib_extMgm::addModule('tools','txt3quixplorerM1',"",t3lib_extMgm::extPath($_EXTKEY).'mod1/');
-}*/
+// register t3quixplorer sprite icons
+$relPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/';
+$icons = array();
+$icons['archive'] = $relPath . 'Archive.gif';
+$icons['copy'] = $relPath . 'Copy.gif';
+$icons['cut'] = $relPath . 'Cut.gif';
+$icons['delete'] = $relPath . 'Delete.gif';
+$icons['download'] = $relPath . 'Download.gif';
+$icons['download-deactivated'] = $relPath . 'DownloadDeactivated.gif';
+$icons['edit'] = $relPath . 'Edit.gif';
+$icons['edit-deactivated'] = $relPath . 'EditDeactivated.gif';
+$icons['extract'] = $relPath . 'Extract.gif';
+$icons['extract-deactivated'] = $relPath . 'ExtractDeactivated.gif';
+$icons['home'] = $relPath . 'Home.gif';
+$icons['paste'] = $relPath . 'Paste.gif';
+$icons['refresh'] = $relPath . 'Refresh.gif';
+$icons['rename'] = $relPath . 'Rename.gif';
+$icons['search'] = $relPath . 'Search.gif';
+$icons['up'] = $relPath . 'Up.gif';
+$icons['upload'] = $relPath . 'Upload.gif';
+\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons($icons, $_EXTKEY);

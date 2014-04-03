@@ -58,9 +58,11 @@ class FileSystemRepository  {
 	 * find all directories and files of given directory
 	 *
 	 * @param \DirectoryIterator $directory
+	 * @param string $sortBy
+	 * @param string $sortDirection
 	 * @return array
 	 */
-	public function getEntriesOfDirectory(\DirectoryIterator $directory) {
+	public function getEntriesOfDirectory(\DirectoryIterator $directory, $sortBy = '', $sortDirection = 'ASC') {
 		$entries = array();
 		/** @var \DirectoryIterator $entry */
 		foreach ($directory as $entry) {
@@ -71,11 +73,49 @@ class FileSystemRepository  {
 				$entry = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Entry', $entry);
 				$entries[$entry->name] = $entry;
 			} else {
-				// is link or what ever
+				// is (sym)link or what ever
 				continue;
 			}
 		}
-		return $entries;
+		return $this->sortEntries($entries, $sortBy, $sortDirection);
+	}
+
+	/**
+	 * find all directories and files of given directory
+	 *
+	 * @param array $entries
+	 * @param string $sortBy
+	 * @param string $sortDirection
+	 * @return array
+	 */
+	protected function sortEntries(array $entries, $sortBy, $sortDirection) {
+		$sortedEntries = array();
+
+		if ($sortBy === '') {
+			// first folders, then files
+			/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
+			foreach ($entries as $entry) {
+				if ($entry->isDir) {
+					$directories[$entry->name] = $entry;
+				} else {
+					$files[$entry->name] = $entry;
+				}
+			}
+			ksort($directories);
+			ksort($files);
+			$sortedEntries = array_merge($directories, $files);
+		} else {
+			/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
+			foreach ($entries as $entry) {
+				$sortedEntries[$entry->$sortBy] = $entry;
+			}
+			if ($sortDirection === 'ASC') {
+				ksort($sortedEntries);
+			} else {
+				krsort($sortedEntries);
+			}
+		}
+		return $sortedEntries;
 	}
 
 }

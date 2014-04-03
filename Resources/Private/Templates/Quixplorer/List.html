@@ -33,8 +33,16 @@
 				<thead>
 					<tr>
 						<th class="c-headLine"><input type="checkbox" class="toggleAll" name="toggleAll"></th>
-						<th class="c-headLine"><f:translate key="name" /></th>
-						<th class="c-headLine"><f:translate key="size" /></th>
+						<th class="c-headLine">
+							<f:link.action action="list" arguments="{directory: directory.relativePath, sortBy: 'name', sortDirection: '{f:if(condition: \'{directory.sortDirection}==\\\'DESC\\\'\', then: \'ASC\', else: \'DESC\')}'}">
+								<f:translate key="name" />
+							</f:link.action>
+						</th>
+						<th class="c-headLine">
+							<f:link.action action="list" arguments="{directory: directory.relativePath, sortBy: 'size', sortDirection: '{f:if(condition: \'{directory.sortDirection}==\\\'DESC\\\'\', then: \'ASC\', else: \'DESC\')}'}">
+								<f:translate key="size" />
+							</f:link.action>
+						</th>
 						<th class="c-headLine"><f:translate key="type" /></th>
 						<th class="c-headLine"><f:translate key="modified" /></th>
 						<th class="c-headLine"><f:translate key="permissions" /></th>

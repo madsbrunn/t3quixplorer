@@ -85,6 +85,12 @@
 			<trans-unit id="free">
 				<source>Free</source>
 			</trans-unit>
+			<trans-unit id="rename">
+				<source>Rename</source>
+			</trans-unit>
+			<trans-unit id="renameFileFolder">
+				<source>Rename File or Folder</source>
+			</trans-unit>
 
 		</body>
 	</file>

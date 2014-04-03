@@ -45,6 +45,27 @@ class Directory {
 	protected $directory = '';
 
 	/**
+	 * Sort entries by
+	 *
+	 * @var string
+	 */
+	protected $sortBy = '';
+
+	/**
+	 * Sort direction
+	 *
+	 * @var string
+	 */
+	protected $sortDirection = '';
+
+	/**
+	 * Allowed sort directions
+	 *
+	 * @var array
+	 */
+	protected $allowedSortDirections = array('size', 'name');
+
+	/**
 	 * subdirectory
 	 *
 	 * @var \DirectoryIterator
@@ -72,9 +93,13 @@ class Directory {
 	 * Constructor of this class
 	 *
 	 * @param string $directory
+	 * @param string $sortBy
+	 * @param string $sortDirection
 	 */
-	public function __construct($directory) {
+	public function __construct($directory, $sortBy, $sortDirection) {
 		$this->setDirectory($this->getValidPath($directory));
+		$this->setSortBy($sortBy);
+		$this->setSortDirection($sortDirection);
 	}
 
 	/**
@@ -110,6 +135,60 @@ class Directory {
 	}
 
 	/**
+	 * setter for directory
+	 *
+	 * @param string $directory
+	 */
+	public function setDirectory($directory) {
+		$this->directory = new \DirectoryIterator($directory);
+	}
+
+	/**
+	 * getter for sortBy
+	 *
+	 * @return string
+	 */
+	public function getSortBy() {
+		return $this->sortBy;
+	}
+
+	/**
+	 * setter for sortBy
+	 *
+	 * @param string $sortBy
+	 */
+	public function setSortBy($sortBy) {
+		if (in_array($sortBy, $this->allowedSortDirections)) {
+			$this->sortBy = $sortBy;
+		} else {
+			$this->sortBy = ''; // first folders, then files
+		}
+	}
+
+	/**
+	 * getter for sortDirection
+	 *
+	 * @return string
+	 */
+	public function getSortDirection() {
+		return $this->sortDirection;
+	}
+
+	/**
+	 * setter for sortDirection
+	 *
+	 * @param string $sortDirection
+	 */
+	public function setSortDirection($sortDirection) {
+		$sortDirection = (string)strtoupper($sortDirection);
+		if ($sortDirection === 'ASC' || $sortDirection === 'DESC') {
+			$this->sortDirection = $sortDirection;
+		} else {
+			$this->sortDirection = 'ASC';
+		}
+	}
+
+	/**
 	 * getter for directory name
 	 *
 	 * @TODO: Seems to be not working
@@ -136,15 +215,6 @@ class Directory {
 	}
 
 	/**
-	 * setter for directory
-	 *
-	 * @param string $directory
-	 */
-	public function setDirectory($directory) {
-		$this->directory = new \DirectoryIterator($directory);
-	}
-
-	/**
 	 * get subdirectory
 	 *
 	 * @return string
@@ -166,7 +236,7 @@ class Directory {
 	 * @return array
 	 */
 	public function getEntries() {
-		return $this->fileSystemRepository->getEntriesOfDirectory($this->directory);
+		return $this->fileSystemRepository->getEntriesOfDirectory($this->directory, $this->sortBy, $this->sortDirection);
 	}
 
 }

@@ -37,6 +37,7 @@ class QuixplorerController extends \MadsBrunn\T3quixplorer\Controller\AbstractCo
 	 * @return void
 	 */
 	public function listAction() {
+		$test = '';
 	}
 
 	/**
@@ -55,6 +56,39 @@ class QuixplorerController extends \MadsBrunn\T3quixplorer\Controller\AbstractCo
 			mkdir($path . '/' . $name);
 		}
 		GeneralUtility::fixPermissions($path . '/' . $name);
+		$this->redirect('list', 'Quixplorer', NULL, array('directory' => $this->directory->getRelativePath()));
+	}
+
+	/**
+	 * show rename form
+	 *
+	 * @param string $relativePath
+	 * @param string $name
+	 * @return void
+	 */
+	public function showRenameFormAction($relativePath, $name) {
+		$this->view->assign('relativePath', $relativePath);
+		$this->view->assign('name', $name);
+	}
+
+	/**
+	 * rename action
+	 *
+	 * @param string $relativePath
+	 * @param string $oldName
+	 * @param string $newName
+	 * @return void
+	 */
+	public function renameAction($relativePath, $oldName = '', $newName = '') {
+		$relativePath = rtrim($relativePath, '/') . '/';
+		if ($relativePath === '/') $relativePath = '';
+		$oldName = PATH_site . $relativePath . $oldName;
+		$newName = PATH_site . $relativePath . $newName;
+		if ($oldName === $newName) {
+			// @ToDo: Add flash message
+		} else {
+			rename($oldName, $newName);
+		}
 		$this->redirect('list', 'Quixplorer', NULL, array('directory' => $this->directory->getRelativePath()));
 	}
 

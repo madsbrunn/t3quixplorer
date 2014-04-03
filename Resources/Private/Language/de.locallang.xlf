@@ -114,6 +114,14 @@
 				<source>Free</source>
 				<target>Frei</target>
 			</trans-unit>
+			<trans-unit id="rename">
+				<source>Rename</source>
+				<target>Umbenennen</target>
+			</trans-unit>
+			<trans-unit id="renameFileFolder">
+				<source>Rename File or Folder</source>
+				<target>Datei oder Verzeichnis umbenennen</target>
+			</trans-unit>
 
 		</body>
 	</file>

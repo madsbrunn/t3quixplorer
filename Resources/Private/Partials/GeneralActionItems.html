@@ -1,41 +1,19 @@
 <table>
 	<tr>
 		<td>
-			<f:link.action action="list" arguments="{directory: directory.subDirectory}">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_up.gif', lang: 'up'}" /></span>
-			</f:link.action>
-
-			<f:link.action action="list" arguments="{directory: ''}">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_home.gif', lang: 'home'}" /></span>
-			</f:link.action>
-
-			<f:link.action action="list" arguments="{directory: directory.relativePath}">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_refresh.gif', lang: 'refresh'}" /></span>
-			</f:link.action>
-
-			<a href="index.php?action=search&order=name&srt=yes">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_search.gif', lang: 'search'}" /></span>
-			</a>
-
-			<a href="javascript:Copy();">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/__copy.gif', lang: 'copy'}" /></span>
-			</a>
-
-			<a href="javascript:Move();">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/__cut.gif', lang: 'cut'}" /></span>
-			</a>
-
-			<a href="javascript:Delete();">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_delete.gif', lang: 'delete'}" /></span>
-			</a>
-
-			<a href="index.php?action=upload&order=name&srt=yes">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_upload.gif', lang: 'upload'}" /></span>
-			</a>
-
-			<a href="javascript:Archive();">
-				<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_archive.gif', lang: 'archive'}" /></span>
-			</a>
+			<f:be.buttons.icon uri="{f:uri.action(action: 'list', arguments: '{directory: directory.subDirectory}')}" icon="extensions-t3quixplorer-up" title="{f:translate(key: 'up')}" />
+			<f:be.buttons.icon uri="{f:uri.action(action: 'list', arguments: '{directory: \'\'}')}" icon="extensions-t3quixplorer-home" title="{f:translate(key: 'home')}" />
+			<f:be.buttons.icon uri="{f:uri.action(action: 'list', arguments: '{directory: directory.relativePath}')}" icon="extensions-t3quixplorer-refresh" title="{f:translate(key: 'refresh')}" />
+			<f:be.buttons.icon icon="extensions-t3quixplorer-search" title="{f:translate(key: 'search')}" />
+			<f:be.buttons.icon icon="extensions-t3quixplorer-copy" title="{f:translate(key: 'copy')}" />
+			<f:be.buttons.icon icon="extensions-t3quixplorer-cut" title="{f:translate(key: 'cut')}" />
+			<f:comment>
+				<!-- ToDo paste -->
+				<f:be.buttons.icon icon="extensions-t3quixplorer-paste" title="{f:translate(key: 'paste')}" />
+			</f:comment>
+			<f:be.buttons.icon icon="extensions-t3quixplorer-delete" title="{f:translate(key: 'delete')}" />
+			<f:be.buttons.icon icon="extensions-t3quixplorer-upload" title="{f:translate(key: 'upload')}" />
+			<f:be.buttons.icon icon="extensions-t3quixplorer-archive" title="{f:translate(key: 'archive')}" />
 		</td>
 	</tr>
 </table>

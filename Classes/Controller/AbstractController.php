@@ -31,23 +31,39 @@ namespace MadsBrunn\T3quixplorer\Controller;
 class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
+	 * current directory with additional information
+	 *
 	 * @var \MadsBrunn\T3quixplorer\Domain\Model\Directory
 	 */
 	protected $directory;
 
 	/**
 	 * add some variables for all actions
+	 * Info: Sure, I know I can set directory in controller actions, but then I have to add them in EACH controller action.
+	 * With this solution the directory was generated at a very early state
 	 *
 	 * @return void
 	 */
 	public function initializeAction() {
-		// set directory
+		// get directory
 		if ($this->request->hasArgument('directory')) {
 			$directory = $this->request->getArgument('directory');
 		} else {
 			$directory = '';
 		}
-		$this->directory = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Directory', $directory);
+		// get sortBy
+		if ($this->request->hasArgument('sortBy')) {
+			$sortBy = $this->request->getArgument('sortBy');
+		} else {
+			$sortBy = '';
+		}
+		// get sort directory
+		if ($this->request->hasArgument('sortDirection')) {
+			$sortDirection = $this->request->getArgument('sortDirection');
+		} else {
+			$sortDirection = '';
+		}
+		$this->directory = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Directory', $directory, $sortBy, $sortDirection);
 	}
 
 	/**
@@ -56,7 +72,6 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * @return void
 	 */
 	public function initializeView() {
-		// add directory model to view
 		$this->view->assign('directory', $this->directory);
 	}
 

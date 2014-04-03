@@ -1,0 +1,19 @@
+{namespace t3q=MadsBrunn\T3quixplorer\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="content">
+	<h2><f:translate key="title" /></h2>
+
+	<div>
+		<h4><f:translate key="renameFileFolder" /></h4>
+
+		<f:form action="rename">
+			<f:form.hidden name="relativePath" value="{relativePath}" />
+			<f:form.hidden name="oldName" value="{name}" />
+			<div>{relativePath}&nbsp;<f:form.textfield name="newName" value="{name}" size="30" /></div>
+			<div><f:form.submit value="{f:translate(key: 'rename')}" /></div>
+		</f:form>
+
+	</div>
+</f:section>

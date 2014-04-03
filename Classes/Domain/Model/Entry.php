@@ -107,10 +107,11 @@ class Entry {
 	 * @return string
 	 */
 	public function getRelativePath() {
-		if (!GeneralUtility::isFirstPartOfStr($this->fullPath, PATH_site)) {
-			$relativePath = '';
+		$fullPath = dirname($this->fullPath);
+		if (!GeneralUtility::isFirstPartOfStr($fullPath, PATH_site)) {
+			$relativePath = '/';
 		} else {
-			$relativePath = str_replace(PATH_site, '', $this->fullPath);
+			$relativePath = str_replace(PATH_site, '', $fullPath);
 		}
 		return $relativePath;
 	}

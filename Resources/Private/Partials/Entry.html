@@ -30,11 +30,16 @@
 	</td>
 
 	<td>
-		<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-open">&nbsp;</span>
-		<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_noextract.gif', lang: 'extract'}" /></span>
-		<a href="index.php?action=rename&item={entry.name}&order=name&srt=yes">
-			<span class="t3-icon t3-icon-actions t3-icon-actions-edit t3-icon-edit-rename">&nbsp;</span>
-		</a>
-		<span class="t3-icon"><f:render partial="Icon" arguments="{path: 'Icons/_nodownload.gif', lang: 'download'}" /></span>
+		<f:if condition="{entry.isDir}">
+			<f:then>
+				<f:be.buttons.icon icon="extensions-t3quixplorer-edit-deactivated" title="{f:translate(key: 'edit')}" />
+			</f:then>
+			<f:else>
+				<f:be.buttons.icon uri="{f:uri.action(action: 'showEditForm')}" icon="extensions-t3quixplorer-edit" title="{f:translate(key: 'edit')}" />
+			</f:else>
+		</f:if>
+		<f:be.buttons.icon icon="extensions-t3quixplorer-extract-deactivated" title="{f:translate(key: 'extract')}" />
+		<f:be.buttons.icon uri="{f:uri.action(action: 'showRenameForm', arguments: '{relativePath: entry.relativePath, name: entry.name}')}" icon="extensions-t3quixplorer-rename" title="{f:translate(key: 'rename')}" />
+		<f:be.buttons.icon icon="extensions-t3quixplorer-download" title="{f:translate(key: 'download')}" />
 	</td>
 </tr>
