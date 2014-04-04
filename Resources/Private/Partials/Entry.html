@@ -6,7 +6,7 @@
 		<t3q:spriteIcon file="{f:if(condition: entry.isDir, then: 'folder', else: entry.name)}" />
 		<f:if condition="{entry.isDir}">
 			<f:then>
-				<f:link.action action="list" arguments="{directory: entry.relativePath}">
+				<f:link.action action="list" arguments="{directory: '{entry.relativePath}{entry.name}'}">
 					&nbsp;{entry.name}
 				</f:link.action>
 			</f:then>

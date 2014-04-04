@@ -113,7 +113,7 @@ class Entry {
 		} else {
 			$relativePath = str_replace(PATH_site, '', $fullPath);
 		}
-		return $relativePath;
+		return rtrim($relativePath, '/') . '/';
 	}
 
 }

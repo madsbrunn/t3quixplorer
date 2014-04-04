@@ -92,6 +92,8 @@ class FileSystemRepository  {
 		$sortedEntries = array();
 
 		if ($sortBy === '') {
+			$directories = array();
+			$files = array();
 			// first folders, then files
 			/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
 			foreach ($entries as $entry) {
