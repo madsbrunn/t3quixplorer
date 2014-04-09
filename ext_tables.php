@@ -5,12 +5,14 @@ if (TYPO3_MODE === 'BE') {
 	 * Registers a Backend Module
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-		'MadsBrunn.' . $_EXTKEY,
+		'T3QDevTeam.' . $_EXTKEY,
 		'tools',	 // Make module a submodule of 'web'
 		't3quixplorer',	// Submodule key
 		'',						// Position
 		array(
-			'Quixplorer' => 'list, createEntry, showRenameForm, rename, showEditForm',
+			'List' => 'index',
+			'FileSystem' => 'createEntry, showRenameForm, rename, showEditForm',
+			'Archive' => 'zip,unzip,rar,unrar,tar,untar'
 		),
 		array(
 			'access' => 'user,group',

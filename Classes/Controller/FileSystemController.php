@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\Controller;
+namespace T3QDevTeam\T3quixplorer\Controller;
 
 /***************************************************************
  *  Copyright notice
@@ -29,16 +29,8 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class QuixplorerController extends \MadsBrunn\T3quixplorer\Controller\AbstractController {
+class FileSystemController extends \T3QDevTeam\T3quixplorer\Controller\AbstractController {
 
-	/**
-	 * list action
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$test = '';
-	}
 
 	/**
 	 * createEntry action
@@ -56,7 +48,7 @@ class QuixplorerController extends \MadsBrunn\T3quixplorer\Controller\AbstractCo
 			mkdir($path . '/' . $name);
 		}
 		GeneralUtility::fixPermissions($path . '/' . $name);
-		$this->redirect('list', 'Quixplorer', NULL, array('directory' => $this->directory->getRelativePath()));
+		$this->redirect('index', 'List', NULL, array('directory' => $this->directory->getRelativePath()));
 	}
 
 	/**
