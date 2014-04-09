@@ -15,29 +15,29 @@ $EM_CONF[$_EXTKEY] = array (
 	'description' => 'This extension introduces Quixplorer! A backend module that makes you capable of exploring the files and folders of your entire webserver. Browse directories. View and edit ascii files. Create, copy, move, delete, archive files and directories. Download and upload files. Change permissions on files and folders.',
 	'category' => 'module',
 	'shy' => 0,
-	'version' => '1.7.2',
+	'version' => '2.0.0',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
 	'module' => 'mod1',
-	'state' => 'stable',
+	'state' => 'alpha',
 	'uploadfolder' => 0,
 	'createDirs' => '',
 	'modify_tables' => '',
 	'clearcacheonload' => 0,
 	'lockType' => '',
-	'author' => 'Mads Brunn',
-	'author_email' => 'madsbrunn@gmail.com',
-	'author_company' => '',
+	'author' => 'Mads Brunn, Stefan Fröemken',
+	'author_email' => 'mads@brunn.dk,froemken@gmail.com',
+	'author_company' => 'T3QDevTeam',
 	'CGLcompliance' => NULL,
 	'CGLcompliance_note' => NULL,
 	'constraints' => 
 	array (
 		'depends' => 
 		array (
-			'php' => '3.0.0-0.0.0',
-			'typo3' => '3.6.4-0.0.0',
+			'php' => '5.3.0',
+			'typo3' => '6.2.0',
 		),
 		'conflicts' => 
 		array (

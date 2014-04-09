@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\ViewHelpers;
+namespace T3QDevTeam\T3quixplorer\ViewHelpers;
 
 	/***************************************************************
 	 *  Copyright notice

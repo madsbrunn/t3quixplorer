@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\Controller;
+namespace T3QDevTeam\T3quixplorer\Controller;
 
 /***************************************************************
  *  Copyright notice

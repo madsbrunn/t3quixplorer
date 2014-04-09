@@ -1,4 +1,4 @@
-{namespace t3q=MadsBrunn\T3quixplorer\ViewHelpers}
+{namespace t3q=T3QDevTeam\T3quixplorer\ViewHelpers}
 
 <tr>
 	<td><input type="checkbox" class="selectEntry" name="selitems[]" value="{entry.name}"></td>
@@ -6,7 +6,7 @@
 		<t3q:spriteIcon file="{f:if(condition: entry.isDir, then: 'folder', else: entry.name)}" />
 		<f:if condition="{entry.isDir}">
 			<f:then>
-				<f:link.action action="list" arguments="{directory: '{entry.relativePath}{entry.name}'}">
+				<f:link.action action="index" controller="List" arguments="{directory: '{entry.relativePath}{entry.name}'}">
 					&nbsp;{entry.name}
 				</f:link.action>
 			</f:then>
@@ -39,7 +39,7 @@
 			</f:else>
 		</f:if>
 		<f:be.buttons.icon icon="extensions-t3quixplorer-extract-deactivated" title="{f:translate(key: 'extract')}" />
-		<f:be.buttons.icon uri="{f:uri.action(action: 'showRenameForm', arguments: '{relativePath: entry.relativePath, name: entry.name}')}" icon="extensions-t3quixplorer-rename" title="{f:translate(key: 'rename')}" />
+		<f:be.buttons.icon uri="{f:uri.action(action: 'showRenameForm', controller: 'FileSystem', arguments: '{relativePath: entry.relativePath, name: entry.name}')}" icon="extensions-t3quixplorer-rename" title="{f:translate(key: 'rename')}" />
 		<f:be.buttons.icon icon="extensions-t3quixplorer-download" title="{f:translate(key: 'download')}" />
 	</td>
 </tr>
