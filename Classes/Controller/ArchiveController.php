@@ -4,7 +4,7 @@ namespace T3QDevTeam\T3quixplorer\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 Stefan Froemken <froemken@gmail.com>
+ *  (c) 2014 Mads Brunn <mads@brunn.dk>
  *
  *  All rights reserved
  *
@@ -37,7 +37,7 @@ class ArchiveController extends \T3QDevTeam\T3quixplorer\Controller\AbstractCont
 	 * @return void
 	 */
 	public function zipAction() {
-		
+
 	}
 
 	/**
