@@ -1,0 +1,81 @@
+{namespace t3q=T3QDevTeam\T3quixplorer\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="content">
+	<h2><f:translate key="title" /></h2>
+
+	<div>
+
+		<!-- General Actions and Upload form -->
+		<table border="0">
+			<tr>
+				<td><f:render partial="GeneralActionItems" arguments="{directory: directory}" /></td>
+				<td><f:render partial="Forms/CreateFileOrFolder" /></td>
+			</tr>
+		</table>
+		<!-- General Actions and Upload form -->
+
+		<!-- change directory form -->
+		<table border="0">
+			<tr>
+				<td><f:render partial="Forms/ChangeDirectory" arguments="{directory: directory}" /></td>
+			</tr>
+		</table>
+		<!-- change directory form -->
+
+		<form name="selform" method="POST" action="index.php?action=post&order=name&srt=yes">
+			<input type="hidden" name="do_action">
+			<input type="hidden" name="first" value="y">
+			<table class="t3-table">
+
+				<!-- Header fields of table -->
+				<thead>
+					<tr>
+						<th class="c-headLine"><input type="checkbox" class="toggleAll" name="toggleAll"></th>
+						<th class="c-headLine">
+							<f:link.action action="list" arguments="{directory: directory.relativePath, sortBy: 'name', sortDirection: '{f:if(condition: \'{directory.sortDirection}==\\\'DESC\\\'\', then: \'ASC\', else: \'DESC\')}'}">
+								<f:translate key="name" />
+							</f:link.action>
+						</th>
+						<th class="c-headLine">
+							<f:link.action action="list" arguments="{directory: directory.relativePath, sortBy: 'size', sortDirection: '{f:if(condition: \'{directory.sortDirection}==\\\'DESC\\\'\', then: \'ASC\', else: \'DESC\')}'}">
+								<f:translate key="size" />
+							</f:link.action>
+						</th>
+						<th class="c-headLine"><f:translate key="type" /></th>
+						<th class="c-headLine"><f:translate key="modified" /></th>
+						<th class="c-headLine"><f:translate key="permissions" /></th>
+						<th class="c-headLine"><f:translate key="actions" /></th>
+					</tr>
+				</thead>
+				<!-- Header fields of table -->
+
+				<tbody>
+					<!-- list the entries of directory -->
+					<f:for each="{directory.entries}" as="entry">
+						<f:render partial="Entry" arguments="{entry: entry}" />
+					</f:for>
+					<!-- list the entries of directory -->
+				</tbody>
+
+				<tfoot>
+					<t3q:directoryInformation directory="{directory}">
+						<!-- Additional Folder informations -->
+						<tr>
+							<td class="c-headLine"></td>
+							<td class="c-headLine">{entries} {f:translate(key: 'entries')} ({f:translate(key: 'free')}: {freeDiskSpace})</td>
+							<td class="c-headLine">{size}</td>
+							<td class="c-headLine"> </td>
+							<td class="c-headLine"> </td>
+							<td class="c-headLine"> </td>
+							<td class="c-headLine"> </td>
+						</tr>
+						<!-- Additional Folder informations -->
+					</t3q:directoryInformation>
+				</tfoot>
+
+			</table>
+		</form>
+	</div>
+</f:section>

@@ -12,7 +12,8 @@ if (TYPO3_MODE === 'BE') {
 		array(
 			'List' => 'index',
 			'FileSystem' => 'createEntry, showRenameForm, rename, showEditForm',
-			'Archive' => 'zip,unzip,rar,unrar,tar,untar'
+			'Archive' => 'zip,unzip,rar,unrar,tar,untar',
+                        'TextFile' => 'showEditFileForm,saveFile,checkPhpSyntaxAction'
 		),
 		array(
 			'access' => 'user,group',
