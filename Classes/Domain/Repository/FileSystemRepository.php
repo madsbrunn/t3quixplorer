@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\Domain\Repository;
+namespace T3QDevTeam\T3quixplorer\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice
@@ -95,7 +95,7 @@ class FileSystemRepository  {
 			$directories = array();
 			$files = array();
 			// first folders, then files
-			/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
+			/** @var \T3QDevTeam\T3quixplorer\Domain\Model\Entry $entry */
 			foreach ($entries as $entry) {
 				if ($entry->isDir) {
 					$directories[$entry->name] = $entry;
@@ -107,7 +107,7 @@ class FileSystemRepository  {
 			ksort($files);
 			$sortedEntries = array_merge($directories, $files);
 		} else {
-			/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
+			/** @var \T3QDevTeam\T3quixplorer\Domain\Model\Entry $entry */
 			foreach ($entries as $entry) {
 				$sortedEntries[$entry->$sortBy] = $entry;
 			}

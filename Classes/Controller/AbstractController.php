@@ -45,6 +45,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * @return void
 	 */
 	public function initializeAction() {
+            
 		// get directory
 		if ($this->request->hasArgument('directory')) {
 			$directory = $this->request->getArgument('directory');
@@ -63,7 +64,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		} else {
 			$sortDirection = '';
 		}
-		$this->directory = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Directory', $directory, $sortBy, $sortDirection);
+		$this->directory = $this->objectManager->get('T3QDevTeam\\T3quixplorer\\Domain\\Model\\Directory', $directory, $sortBy, $sortDirection);
 	}
 
 	/**

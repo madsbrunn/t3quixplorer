@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\Domain\Model;
+namespace T3QDevTeam\T3quixplorer\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
