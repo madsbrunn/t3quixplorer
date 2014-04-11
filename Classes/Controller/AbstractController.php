@@ -33,7 +33,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	/**
 	 * current directory with additional information
 	 *
-	 * @var \MadsBrunn\T3quixplorer\Domain\Model\Directory
+	 * @var \T3QDevTeam\T3quixplorer\Domain\Model\Directory
 	 */
 	protected $directory;
 

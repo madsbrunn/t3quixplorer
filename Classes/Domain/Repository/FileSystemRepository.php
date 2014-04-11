@@ -69,8 +69,8 @@ class FileSystemRepository  {
 			if ($entry->isDot()) {
 				continue;
 			} elseif ($entry->isDir() || $entry->isFile()) {
-				/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
-				$entry = $this->objectManager->get('MadsBrunn\\T3quixplorer\\Domain\\Model\\Entry', $entry);
+				/** @var \T3QDevTeam\T3quixplorer\Domain\Model\Entry $entry */
+				$entry = $this->objectManager->get('T3QDevTeam\\T3quixplorer\\Domain\\Model\\Entry', $entry);
 				$entries[$entry->name] = $entry;
 			} else {
 				// is (sym)link or what ever

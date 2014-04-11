@@ -1,5 +1,5 @@
 <?php
-namespace MadsBrunn\T3quixplorer\ViewHelpers;
+namespace T3QDevTeam\T3quixplorer\ViewHelpers;
 
 /***************************************************************
  *  Copyright notice
@@ -35,12 +35,12 @@ class DirectoryInformationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Ab
 	/**
 	 * Create sprite icon for file
 	 *
-	 * @param \MadsBrunn\T3quixplorer\Domain\Model\Directory $directory
+	 * @param \T3QDevTeam\T3quixplorer\Domain\Model\Directory $directory
 	 * @return string html
 	 */
-	public function render(\MadsBrunn\T3quixplorer\Domain\Model\Directory $directory) {
+	public function render(\T3QDevTeam\T3quixplorer\Domain\Model\Directory $directory) {
 		$directoryInformation = array();
-		/** @var \MadsBrunn\T3quixplorer\Domain\Model\Entry $entry */
+		/** @var \T3QDevTeam\T3quixplorer\Domain\Model\Entry $entry */
 		foreach ($directory->getEntries() as $entry) {
 			$directoryInformation['size'] += (int)$entry->size;
 			$directoryInformation['entries'] += 1;
@@ -67,10 +67,10 @@ class DirectoryInformationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Ab
 	/**
 	 * get disk free space
 	 *
-	 * @param \MadsBrunn\T3quixplorer\Domain\Model\Directory $directory
+	 * @param \T3QDevTeam\T3quixplorer\Domain\Model\Directory $directory
 	 * @return string
 	 */
-	protected function getDiskFreeSpace(\MadsBrunn\T3quixplorer\Domain\Model\Directory $directory) {
+	protected function getDiskFreeSpace(\T3QDevTeam\T3quixplorer\Domain\Model\Directory $directory) {
 		if(function_exists('disk_free_space')) {
 			$freeDiskSpace = GeneralUtility::formatSize(disk_free_space($directory->getDirectory()->getPath()), ' Bytes| KB| MB| GB| TB');
 		} else {
