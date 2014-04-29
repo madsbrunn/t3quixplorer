@@ -33,7 +33,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class Directory {
 
 	/**
-	 * @var \MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository
+	 * @var \T3QDevTeam\T3quixplorer\Domain\Repository\FileSystemRepository
 	 */
 	protected $fileSystemRepository;
 
@@ -79,9 +79,9 @@ class Directory {
 	/**
 	 * inject FileSystemRepository
 	 *
-	 * @param \MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository
+	 * @param \T3QDevTeam\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository
 	 */
-	public function injectFileSystemRepository(\MadsBrunn\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository) {
+	public function injectFileSystemRepository(\T3QDevTeam\T3quixplorer\Domain\Repository\FileSystemRepository $fileSystemRepository) {
 		$this->fileSystemRepository = $fileSystemRepository;
 	}
 
