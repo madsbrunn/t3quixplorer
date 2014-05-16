@@ -84,4 +84,29 @@ class FileSystemController extends \T3QDevTeam\T3quixplorer\Controller\AbstractC
 		$this->redirect('index', 'List', NULL, array('directory' => $this->directory->getRelativePath()));
 	}
 
+	/**
+	 * show edit form
+	 *
+	 * @param string $relativePath
+	 * @param string $name
+	 * @return void
+	 */
+	public function showEditFormAction($relativePath, $name) {
+		$this->view->assign('relativePath', $relativePath);
+		$this->view->assign('name', $name);
+	}
+
+	/**
+	 * edit file
+	 *
+	 * @param string $relativePath
+	 * @param string $fileName
+	 * @param string $code
+	 * @return void
+	 */
+	public function editFileAction($relativePath, $fileName, $code = '') {
+		file_put_contents(PATH_site . $relativePath . $fileName, $code);
+		$this->redirect('index', 'List', NULL, array('directory' => $relativePath));
+	}
+
 }

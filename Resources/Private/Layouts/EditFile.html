@@ -1,6 +1,15 @@
 <f:be.container
+	includeCssFiles="{
+		0: 'sysext/t3editor/res/css/t3editor.css'
+	}"
 	loadJQuery="1"
-	includeJsFiles="{0: '{f:uri.resource(path: \'JavaScript/Main.js\')}'}"
+	includeJsFiles="{
+		0: '{f:uri.resource(path: \'JavaScript/Main.js\')}',
+		1: 'sysext/backend/Resources/Public/JavaScript/tab.js',
+		2: 'contrib/codemirror/js/codemirror.js',
+		3: 'sysext/t3editor/res/jslib/t3editor.js',
+		4: 'sysext/t3editor/res/jslib/fileedit.js'
+	}"
 >
 	<div class="typo3-fullDoc">
 		<div id="typo3-docheader">

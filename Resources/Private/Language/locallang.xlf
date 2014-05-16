@@ -91,6 +91,12 @@
 			<trans-unit id="renameFileFolder">
 				<source>Rename File or Folder</source>
 			</trans-unit>
+			<trans-unit id="editFile">
+				<source>Edit file</source>
+			</trans-unit>
+			<trans-unit id="save">
+				<source>Save file</source>
+			</trans-unit>
 
 		</body>
 	</file>

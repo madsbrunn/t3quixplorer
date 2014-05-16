@@ -1,9 +1,9 @@
 <table>
 	<tr>
 		<td>
-			<f:be.buttons.icon uri="{f:uri.action(action: 'list', arguments: '{directory: directory.subDirectory}')}" icon="extensions-t3quixplorer-up" title="{f:translate(key: 'up')}" />
-			<f:be.buttons.icon uri="{f:uri.action(action: 'list', arguments: '{directory: \'\'}')}" icon="extensions-t3quixplorer-home" title="{f:translate(key: 'home')}" />
-			<f:be.buttons.icon uri="{f:uri.action(action: 'list', arguments: '{directory: directory.relativePath}')}" icon="extensions-t3quixplorer-refresh" title="{f:translate(key: 'refresh')}" />
+			<f:be.buttons.icon uri="{f:uri.action(action: 'index', controller: 'List', arguments: '{directory: directory.subDirectory}')}" icon="extensions-t3quixplorer-up" title="{f:translate(key: 'up')}" />
+			<f:be.buttons.icon uri="{f:uri.action(action: 'index', controller: 'List', arguments: '{directory: \'\'}')}" icon="extensions-t3quixplorer-home" title="{f:translate(key: 'home')}" />
+			<f:be.buttons.icon uri="{f:uri.action(action: 'index', controller: 'List', arguments: '{directory: directory.relativePath}')}" icon="extensions-t3quixplorer-refresh" title="{f:translate(key: 'refresh')}" />
 			<f:be.buttons.icon icon="extensions-t3quixplorer-search" title="{f:translate(key: 'search')}" />
 			<f:be.buttons.icon icon="extensions-t3quixplorer-copy" title="{f:translate(key: 'copy')}" />
 			<f:be.buttons.icon icon="extensions-t3quixplorer-cut" title="{f:translate(key: 'cut')}" />

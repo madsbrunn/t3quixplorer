@@ -122,6 +122,14 @@
 				<source>Rename File or Folder</source>
 				<target>Datei oder Verzeichnis umbenennen</target>
 			</trans-unit>
+			<trans-unit id="editFile">
+				<source>Edit file</source>
+				<target>Datei bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="save">
+				<source>Save file</source>
+				<target>Datei speichern</target>
+			</trans-unit>
 
 		</body>
 	</file>

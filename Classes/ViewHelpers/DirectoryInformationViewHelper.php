@@ -27,7 +27,7 @@ namespace T3QDevTeam\T3quixplorer\ViewHelpers;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @package socialpublish
+ * @package t3quixplorer
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class DirectoryInformationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {

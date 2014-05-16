@@ -11,7 +11,7 @@ if (TYPO3_MODE === 'BE') {
 		'',						// Position
 		array(
 			'List' => 'index',
-			'FileSystem' => 'createEntry, showRenameForm, rename, showEditForm',
+			'FileSystem' => 'createEntry, showRenameForm, rename, showEditForm, editFile',
 			'Archive' => 'zip,unzip,rar,unrar,tar,untar',
                         'TextFile' => 'showEditFileForm,saveFile,checkPhpSyntaxAction'
 		),

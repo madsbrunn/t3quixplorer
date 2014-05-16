@@ -35,7 +35,7 @@
 				<f:be.buttons.icon icon="extensions-t3quixplorer-edit-deactivated" title="{f:translate(key: 'edit')}" />
 			</f:then>
 			<f:else>
-				<f:be.buttons.icon uri="{f:uri.action(action: 'showEditForm')}" icon="extensions-t3quixplorer-edit" title="{f:translate(key: 'edit')}" />
+				<f:be.buttons.icon uri="{f:uri.action(action: 'showEditForm', controller: 'FileSystem', arguments: '{relativePath: entry.relativePath, name: entry.name}')}" icon="extensions-t3quixplorer-edit" title="{f:translate(key: 'edit')}" />
 			</f:else>
 		</f:if>
 		<f:be.buttons.icon icon="extensions-t3quixplorer-extract-deactivated" title="{f:translate(key: 'extract')}" />

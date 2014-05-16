@@ -1,0 +1,23 @@
+{namespace t3q=T3QDevTeam\T3quixplorer\ViewHelpers}
+
+<f:layout name="EditFile" />
+
+<f:section name="content">
+	<h2><f:translate key="title" /></h2>
+
+	<div>
+		<h4><f:translate key="editFile" /></h4>
+
+		<f:form action="editFile" method="post">
+			<f:form.hidden name="relativePath" value="{relativePath}" />
+			<f:form.hidden name="fileName" value="{name}" />
+			<div>
+				<t3q:fileContent relativePath="{relativePath}" fileName="{name}" />
+			</div>
+			<div>
+				<f:form.submit value="{f:translate(key: 'save')}" />
+				<f:link.action action="index" controller="List" arguments="{directory: relativePath}">Abbrechen</f:link.action>
+			</div>
+		</f:form>
+	</div>
+</f:section>

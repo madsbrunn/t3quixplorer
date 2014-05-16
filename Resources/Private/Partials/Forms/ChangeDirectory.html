@@ -1,9 +1,9 @@
-<f:form action="list">
+<f:form action="index" controller="List">
 	<table>
 		<tr>
 			<td>
 				<f:translate key="directory" />: /
-				<f:form.textfield name="directory" size="50" value="" />
+				<f:form.textfield name="directory" size="50" value="{directory.relativePath}" />
 				<f:form.submit value="{f:translate(key: 'changeDirectory')}" />
 			</td>
 		</tr>
