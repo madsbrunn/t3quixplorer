@@ -109,4 +109,16 @@ class FileSystemController extends \T3QDevTeam\T3quixplorer\Controller\AbstractC
 		$this->redirect('index', 'List', NULL, array('directory' => $relativePath));
 	}
 
+	/**
+	 * process marked files
+	 *
+	 * @param string $relativePath
+	 * @param array $fileNames
+	 * @return void
+	 */
+	public function processMarkedFilesAction($relativePath, array $fileNames = array()) {
+		$deleteFile = '';
+		$this->redirect('index', 'List', NULL, array('directory' => $relativePath));
+	}
+
 }

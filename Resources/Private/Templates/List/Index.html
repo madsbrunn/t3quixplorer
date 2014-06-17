@@ -7,26 +7,15 @@
 
 	<div>
 
-		<!-- General Actions and Upload form -->
-		<table border="0">
-			<tr>
-				<td><f:render partial="GeneralActionItems" arguments="{directory: directory}" /></td>
-				<td><f:render partial="Forms/CreateFileOrFolder" /></td>
-			</tr>
-		</table>
-		<!-- General Actions and Upload form -->
+		<!-- General Actions form -->
+		<div><f:render partial="Forms/CreateFileOrFolder" /></div>
+		<!-- General Actions form -->
 
 		<!-- change directory form -->
-		<table border="0">
-			<tr>
-				<td><f:render partial="Forms/ChangeDirectory" arguments="{directory: directory}" /></td>
-			</tr>
-		</table>
+		<div><f:render partial="Forms/ChangeDirectory" arguments="{directory: directory}" /></div>
 		<!-- change directory form -->
 
-		<form name="selform" method="POST" action="index.php?action=post&order=name&srt=yes">
-			<input type="hidden" name="do_action">
-			<input type="hidden" name="first" value="y">
+		<f:form action="processMarkedFiles" controller="FileSystem" name="itemList" method="POST" arguments="{relativePath: directory.relativePath}">
 			<table class="t3-table">
 
 				<!-- Header fields of table -->
@@ -52,6 +41,10 @@
 				<!-- Header fields of table -->
 
 				<tbody>
+					<tr>
+						<td colspan="7"><f:render partial="GeneralActionItems" arguments="{directory: directory}" /></td>
+					</tr>
+
 					<!-- list the entries of directory -->
 					<f:for each="{directory.entries}" as="entry">
 						<f:render partial="Entry" arguments="{entry: entry}" />
@@ -76,6 +69,6 @@
 				</tfoot>
 
 			</table>
-		</form>
+		</f:form>
 	</div>
 </f:section>

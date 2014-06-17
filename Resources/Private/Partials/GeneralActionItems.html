@@ -11,7 +11,10 @@
 				<!-- ToDo paste -->
 				<f:be.buttons.icon icon="extensions-t3quixplorer-paste" title="{f:translate(key: 'paste')}" />
 			</f:comment>
-			<f:be.buttons.icon icon="extensions-t3quixplorer-delete" title="{f:translate(key: 'delete')}" />
+			<f:comment>
+				<f:be.buttons.icon uri="{f:uri.action(action: 'deleteFiles', controller: 'FileSystem', arguments: '{directory: directory.relativePath}')}" icon="extensions-t3quixplorer-delete" title="{f:translate(key: 'delete')}" />
+			</f:comment>
+			<f:form.submit value="{f:translate(key: 'delete')}" name="delete"><f:be.buttons.icon icon="extensions-t3quixplorer-delete" title="{f:translate(key: 'delete')}" /></f:form.submit>
 			<f:be.buttons.icon icon="extensions-t3quixplorer-upload" title="{f:translate(key: 'upload')}" />
 			<f:be.buttons.icon icon="extensions-t3quixplorer-archive" title="{f:translate(key: 'archive')}" />
 		</td>

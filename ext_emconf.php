@@ -27,7 +27,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'modify_tables' => '',
 	'clearcacheonload' => 0,
 	'lockType' => '',
-	'author' => 'Mads Brunn, Stefan Fröemken',
+	'author' => 'Mads Brunn, Stefan Froemken',
 	'author_email' => 'mads@brunn.dk,froemken@gmail.com',
 	'author_company' => 'T3QDevTeam',
 	'CGLcompliance' => NULL,
@@ -38,6 +38,7 @@ $EM_CONF[$_EXTKEY] = array (
 		array (
 			'php' => '5.3.0',
 			'typo3' => '6.2.0',
+			't3editor' => '',
 		),
 		'conflicts' => 
 		array (
